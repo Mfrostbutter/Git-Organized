@@ -1,0 +1,60 @@
+# Capacity Summary — {{ENVIRONMENT_NAME}}
+
+**Date:** {{DATE}}
+**Environment:** {{ENVIRONMENT_NAME}}
+
+---
+
+## Compute
+
+| Node | CPU Model | Cores/Threads | RAM Physical | RAM Allocated | RAM Available |
+|------|-----------|---------------|--------------|---------------|---------------|
+| {{NODE_1}} | {{CPU_MODEL_1}} | {{CORES_1}} | {{RAM_PHYS_1}} | {{RAM_ALLOC_1}} | {{RAM_AVAIL_1}} |
+
+**Total compute:** {{TOTAL_CORES}} cores / {{TOTAL_RAM}} RAM
+
+---
+
+## Storage
+
+| Node / Pool | Type | Total | Used | Free | Notes |
+|-------------|------|-------|------|------|-------|
+| {{POOL_1}} | {{TYPE_1}} | {{TOTAL_1}} | {{USED_1}} | {{FREE_1}} | {{NOTES_1}} |
+
+**Total raw storage:** {{TOTAL_STORAGE}}
+
+---
+
+## GPU
+
+| Host | GPU Model | VRAM | Driver | Current Workload |
+|------|-----------|------|--------|-----------------|
+| {{HOST_1}} | {{GPU_MODEL_1}} | {{VRAM_1}} | {{DRIVER_1}} | {{WORKLOAD_1}} |
+
+---
+
+## Network
+
+| Segment | Subnet | Gateway | VLAN | Notes |
+|---------|--------|---------|------|-------|
+| Management | {{MGMT_SUBNET}} | {{MGMT_GW}} | {{VLAN_1}} | |
+| Storage | {{STORAGE_SUBNET}} | {{STORAGE_GW}} | {{VLAN_2}} | |
+
+---
+
+## Service Distribution
+
+| Service | Host | RAM Alloc | CPU Alloc | Notes |
+|---------|------|-----------|-----------|-------|
+| {{SERVICE_1}} | {{HOST_1}} | {{RAM_1}} | {{CPU_1}} | |
+
+---
+
+## Headroom / Concerns
+
+| Node | RAM Headroom | Storage Headroom | Notes |
+|------|-------------|------------------|-------|
+| {{NODE_1}} | {{RAM_HW_1}} | {{STORAGE_HW_1}} | {{NOTES_1}} |
+
+**Action items:**
+- [ ] {{CAPACITY_ACTION_1}}

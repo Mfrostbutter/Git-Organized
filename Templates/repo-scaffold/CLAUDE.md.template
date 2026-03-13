@@ -1,0 +1,89 @@
+# {{REPO_NAME}} — Claude Code Instructions
+
+> This file provides context for Claude Code (and Copilot) when working in the {{REPO_NAME}} repository.
+
+## Who You're Helping
+
+**{{PRIMARY_USER_NAME}}** — {{PRIMARY_USER_ROLE}} at {{ORGANIZATION_NAME}}. {{PRIMARY_USER_DESCRIPTION}}
+
+{{SECONDARY_USER_INFO}}
+
+## Repository Structure
+
+```
+{{REPO_NAME}}/
+├── Git-Organized.md               ← START HERE — Interactive setup guide
+├── Docs/                          Infrastructure documentation
+│   ├── Network_Inventory.md       Master reference: IP table, hardware specs
+│   └── CHANGELOG.md               All significant infrastructure changes
+├── Planning/                      Active planning docs
+├── Workflows/                     Automation workflow exports and docs
+│   ├── Exports/                   Raw workflow JSON exports
+│   ├── Configs/                   Connection & credential docs (no secrets)
+│   └── Reviews/                   Workflow analysis notes
+├── Knowledge/                     Operational knowledge
+│   ├── Procedures/                SOPs, runbooks, how-to guides
+│   ├── Client-Notes/              Per-client technical notes (no PII)
+│   └── Vendor-Notes/              Vendor-specific reference info
+├── Operations/                    Day-to-day operational tracking
+│   ├── Change-Log/                Infrastructure changes with dates
+│   ├── Incidents/                 Issue tracking and resolution
+│   └── Maintenance/               Scheduled maintenance records
+├── Reviews/                       AI-assisted analysis outputs
+├── Outputs/                       Generated reports and deliverables
+├── Scripts/                       Environment-specific scripts
+└── Archive/                       Retired/superseded files (never delete)
+```
+
+## Environment
+
+### Primary Infrastructure
+
+| Property | Value |
+|----------|-------|
+| **Host** | {{PRIMARY_HOST}} |
+| **IP** | {{PRIMARY_IP}} |
+| **Hypervisor** | {{HYPERVISOR}} |
+| **OS** | {{OS}} |
+| **Hardware** | {{HARDWARE_SUMMARY}} |
+| **Network** | {{PRIMARY_SUBNET}} |
+
+### Services
+
+| Service | IP | Port | Notes |
+|---------|----|------|-------|
+| {{SERVICE_1}} | {{IP_1}} | {{PORT_1}} | {{NOTES_1}} |
+| {{SERVICE_2}} | {{IP_2}} | {{PORT_2}} | {{NOTES_2}} |
+
+## Key Tasks
+
+{{KEY_TASKS_DESCRIPTION}}
+
+## Git Workflow
+
+### Branches
+- `main` — stable, production-ready documentation
+- Create feature branches for large changes: `git checkout -b feature/description`
+
+### Commit Messages
+
+```
+Update {{THING}}: add/change/fix description
+
+- Specific change 1
+- Specific change 2
+```
+
+## Coding Conventions (Scripts)
+
+- All configuration via `.env` file — never hardcode IPs, credentials, or paths
+- Use `python-dotenv` for `.env` loading
+- Systemd units for long-running services
+- Log to journald via systemd
+
+## Important Notes
+
+- **Never delete files** — move to `Archive/`
+- **No secrets in Git** — credentials go in `.env` files (gitignored)
+- **No client PII** — reference ticket numbers, not names/emails/phone numbers
+- Follow the change management workflow for all modifications: Duplicate → Modify → Evaluate → Confirm → Archive → Implement → Update

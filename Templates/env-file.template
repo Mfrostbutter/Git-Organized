@@ -1,0 +1,72 @@
+# Environment Variables — {{REPO_NAME}}
+# Copy this file to .env and fill in your values
+# NEVER commit .env to Git — it is gitignored
+
+# =============================================================================
+# Infrastructure Access
+# =============================================================================
+
+# Primary Proxmox / hypervisor host
+PVE_HOST={{PROXMOX_IP}}
+PVE_USER=root
+PVE_SSH_KEY=~/.ssh/id_ed25519
+
+# Storage / NAS
+STORAGE_HOST={{STORAGE_IP}}
+STORAGE_USER={{STORAGE_USER}}
+
+# Gateway / router
+GATEWAY_IP={{GATEWAY_IP}}
+
+# =============================================================================
+# Service URLs
+# =============================================================================
+
+# Vector database (Qdrant)
+QDRANT_URL=http://{{QDRANT_IP}}:6333
+QDRANT_API_KEY={{QDRANT_API_KEY}}
+
+# PostgreSQL
+POSTGRES_HOST={{POSTGRES_IP}}
+POSTGRES_PORT=5432
+POSTGRES_DB={{DATABASE_NAME}}
+POSTGRES_USER={{DB_USER}}
+POSTGRES_PASSWORD={{DB_PASSWORD}}
+
+# Workflow automation (n8n)
+N8N_URL=http://{{N8N_IP}}:5678
+N8N_API_KEY={{N8N_API_KEY}}
+
+# AI inference (Ollama)
+OLLAMA_URL=http://{{OLLAMA_IP}}:11434
+
+# =============================================================================
+# External API Keys
+# =============================================================================
+
+OPENAI_API_KEY={{OPENAI_API_KEY}}
+VOYAGE_API_KEY={{VOYAGE_API_KEY}}
+
+# =============================================================================
+# MCP Servers (if applicable)
+# =============================================================================
+
+MCP_BEARER_TOKEN={{MCP_BEARER_TOKEN}}
+MCP_KNOWLEDGE_PORT=8081
+MCP_VENDOR_PORT=8082
+
+# =============================================================================
+# VPN / Overlay Network
+# =============================================================================
+
+NETBIRD_MANAGEMENT_URL={{NETBIRD_URL}}
+NETBIRD_SETUP_KEY={{NETBIRD_SETUP_KEY}}
+
+# =============================================================================
+# Notification / Alerting
+# =============================================================================
+
+SLACK_WEBHOOK_URL={{SLACK_WEBHOOK}}
+SMTP_HOST={{SMTP_HOST}}
+SMTP_USER={{SMTP_USER}}
+SMTP_PASSWORD={{SMTP_PASSWORD}}

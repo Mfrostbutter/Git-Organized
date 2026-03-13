@@ -1,0 +1,84 @@
+# {{REPO_NAME}}
+
+> {{ONE_LINE_DESCRIPTION}}
+
+---
+
+## Overview
+
+{{ENVIRONMENT_DESCRIPTION}}
+
+This repository is the version-controlled, AI-searchable documentation for the **{{ENVIRONMENT_NAME}}** environment. It uses the [Git-Organized](https://github.com/Mfrostbutter/Git-Organized) framework.
+
+---
+
+## Environment Summary
+
+| Property | Value |
+|----------|-------|
+| **Environment** | {{ENVIRONMENT_NAME}} |
+| **Location** | {{PHYSICAL_LOCATION}} |
+| **Primary contact** | {{PRIMARY_CONTACT}} |
+| **Last inventory** | {{LAST_INVENTORY_DATE}} |
+| **Network** | {{PRIMARY_SUBNET}} |
+
+---
+
+## Repository Structure
+
+```
+{{REPO_NAME}}/
+├── Docs/                  Infrastructure documentation
+│   ├── Network_Inventory.md       IP allocation, device specs, capacity
+│   └── CHANGELOG.md               All significant changes
+├── Planning/              Active plans and questionnaires
+├── Workflows/             Automation workflow exports and configs
+│   ├── Exports/           Raw workflow JSON exports
+│   ├── Configs/           Connection configs (no secrets)
+│   └── Reviews/           Workflow analysis notes
+├── Knowledge/             Operational knowledge and notes
+│   ├── Procedures/        SOPs and runbooks
+│   ├── Client-Notes/      Per-client technical notes (no PII)
+│   └── Vendor-Notes/      Vendor-specific reference info
+├── Operations/            Day-to-day operational tracking
+│   ├── Change-Log/        Infrastructure changes with dates
+│   ├── Incidents/         Issue tracking and resolution
+│   └── Maintenance/       Scheduled maintenance records
+├── Reviews/               AI-assisted analysis outputs
+├── Scripts/               Environment-specific scripts
+├── Outputs/               Generated reports and deliverables
+└── Archive/               Retired files (never delete — move here)
+```
+
+---
+
+## Key Docs
+
+- [Network Inventory](Docs/Network_Inventory.md) — IP table, hardware specs, service inventory
+- [CHANGELOG](Docs/CHANGELOG.md) — All significant infrastructure changes
+- [Git-Organized Guide](Git-Organized.md) — Onboarding and daily workflow guide
+
+---
+
+## Quick Reference
+
+### Git Workflow
+
+```bash
+# Daily start
+git pull
+
+# After any change
+git add -A
+git commit -m "Brief description"
+git push
+```
+
+### Change Management
+
+See [Git-Organized.md](Git-Organized.md) for the full change workflow:
+Duplicate → Modify → Evaluate → Confirm → Archive → Implement → Update
+
+---
+
+*Questions? See the [Git-Organized](Git-Organized.md) guide or ping {{PRIMARY_CONTACT}}.*

@@ -1,0 +1,73 @@
+# Credentials and secrets
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+credentials/
+creds/
+
+# Data files with PII risk
+*.csv
+*.xlsx
+*.xls
+# Uncomment below if you need to track data files in specific directories:
+# !Outputs/*.csv
+
+# Large binary files
+*.vmdk
+*.qcow2
+*.iso
+vzdump-*.tar.zst
+vzdump-*.vma.zst
+
+# OS artifacts
+.DS_Store
+.DS_Store?
+Thumbs.db
+desktop.ini
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Editor artifacts
+.vscode/settings.json
+.vscode/*.code-snippets
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Scan output (raw — process into inventory docs instead)
+scan-results/
+*.nmap
+*.gnmap
+nmap-*.xml
+
+# Temporary files
+*.tmp
+*.bak
+*.orig
+*.backup

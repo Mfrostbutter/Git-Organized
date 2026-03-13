@@ -1,0 +1,40 @@
+# Credentials and secrets
+.env
+.env.*
+*.key
+*.pem
+*.p12
+secrets/
+credentials/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor artifacts
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# Scan output (raw — should be processed into inventory docs instead)
+scan-results/
+*.nmap
+*.gnmap
+*.xml
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Node (if any tooling)
+node_modules/
+
+# Temp files
+*.tmp
+*.bak

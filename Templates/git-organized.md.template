@@ -1,0 +1,294 @@
+# Getting Organized — {{PERSON_NAME}}'s {{REPO_NAME}} Setup Guide
+
+> **What is this?** An interactive walkthrough to get your local files organized, your Git workflow running, and your AI tools helping you stay on top of everything. Work through the sections in order — check off each box as you go.
+
+---
+
+## Before You Start
+
+You'll need:
+- [ ] Git installed (`git --version` — should be 2.x+)
+- [ ] VS Code installed {{WITH_COPILOT_OR_EDITOR_PLUGIN}}
+- [ ] SSH key added to GitHub (`ssh -T git@github.com` — should say "Hi!")
+- [ ] Claude Desktop running with your MCP servers configured (if applicable)
+
+If any of these fail, stop here and fix them first. {{CONTACT_FOR_HELP}}
+
+---
+
+## Step 1 — Clone the Repo
+
+If you haven't already:
+
+```bash
+# Clone {{REPO_NAME}} {{WITH_OR_WITHOUT_SUBMODULES}}
+git clone {{CLONE_URL}}
+cd {{REPO_DIR}}
+```
+
+{{SUBMODULE_INIT_INSTRUCTIONS}}
+
+- [ ] I have {{REPO_NAME}} cloned and ready
+
+---
+
+## Step 2 — Understand the Folder Structure
+
+Here's the directory layout. Each folder has a specific purpose — files go in the folder that matches what they are, not where you happened to save them.
+
+```
+{{REPO_DIR}}/
+├── Docs/                  Infrastructure documentation (hardware, networking, configs)
+├── Planning/              Active plans, questionnaires, migration docs
+├── Workflows/             {{WORKFLOW_TOOL}} workflow exports and documentation
+│   ├── Exports/           Raw workflow exports
+│   ├── Configs/           Credential configs, connection docs (no secrets!)
+│   └── Reviews/           Workflow review notes
+├── Knowledge/             Your operational knowledge and notes
+│   ├── Procedures/        SOPs, runbooks, how-to docs
+│   ├── Client-Notes/      Per-client technical notes (no PII — use ticket #s)
+│   └── Vendor-Notes/      Vendor-specific knowledge and contacts
+├── Operations/            Day-to-day operational tracking
+│   ├── Change-Log/        What changed, when, and why
+│   ├── Incidents/         Issue tracking and resolution notes
+│   └── Maintenance/       Scheduled maintenance records and plans
+├── Reviews/               AI-assisted reviews and analysis outputs
+├── Scripts/               Environment-specific scripts and tools
+├── Outputs/               Generated reports, exports, templates
+└── Archive/               Old files that aren't active anymore
+```
+
+**Rules:**
+1. **Never delete files** — move them to `Archive/` instead
+2. **No secrets in Git** — passwords, API keys, tokens go in `.env` files (which are gitignored)
+3. **No client PII** — reference ticket numbers or internal IDs, not names/emails/phone numbers
+4. **Markdown preferred** — use `.md` files for notes, docs, and reviews
+
+- [ ] I understand the folder structure
+
+---
+
+## Step 3 — Sort Your Existing Files
+
+This is the big one. Look through your local machine for {{DOMAIN}}-related files and sort them into the right folders. Here's a guide for common file types:
+
+### Where does this file go?
+
+| File Type | Folder | Examples |
+|-----------|--------|----------|
+| {{WORKFLOW_TOOL}} workflow exports | `Workflows/Exports/` | `workflow-name_v3.json` |
+| Connection/credential docs | `Workflows/Configs/` | `service-connection-config.md` |
+| Workflow review notes | `Workflows/Reviews/` | `workflow-review.md` |
+| Hardware/network docs | `Docs/` | Server configs, IP tables, switch configs |
+| Migration plans, roadmaps | `Planning/` | Timeline docs, questionnaires |
+| How-to procedures, SOPs | `Knowledge/Procedures/` | "How to restore a backup" |
+| Client environment notes | `Knowledge/Client-Notes/` | "ACME Corp — server inventory" |
+| Vendor reference info | `Knowledge/Vendor-Notes/` | "Vendor compatibility notes" |
+| Change records | `Operations/Change-Log/` | "2026-03-10 — Replaced firewall" |
+| Incident notes | `Operations/Incidents/` | "2026-03-05 — VPN outage" |
+| Scheduled maintenance | `Operations/Maintenance/` | "Q1 2026 patch schedule" |
+| AI-generated analysis | `Reviews/` | System reviews, audit reports |
+| Reports for leadership | `Outputs/` | Performance reports, SLA summaries |
+| Old files, superseded docs | `Archive/` | Anything that's been replaced |
+
+### Sorting Process
+
+Work through this one category at a time. For each category:
+
+1. Search your machine for related files (Desktop, Documents, Downloads, etc.)
+2. Copy them into the correct {{REPO_NAME}} folder
+3. Rename if needed — use descriptive names with dates: `YYYY-MM-DD_Description.md`
+4. Check off the category below
+
+**Categories to sort through:**
+
+- [ ] **{{WORKFLOW_TOOL}} Workflows** — Export your important workflows and save them to `Workflows/Exports/`
+- [ ] **Infrastructure Docs** — Hardware specs, network diagrams, switch configs → `Docs/`
+- [ ] **Procedures & SOPs** — Any "how I do X" notes → `Knowledge/Procedures/`
+- [ ] **Client Notes** — Per-client technical knowledge (sanitized) → `Knowledge/Client-Notes/`
+- [ ] **Vendor Notes** — Vendor-specific reference info → `Knowledge/Vendor-Notes/`
+- [ ] **Planning Docs** — Active plans, timelines, proposals → `Planning/`
+- [ ] **Old/Superseded Files** — Anything not actively used → `Archive/`
+
+> **Tip:** Don't try to sort everything in one sitting. Start with the most important stuff and add more over time.
+
+---
+
+## Step 4 — Document Your Environment
+
+Before your first commit, capture a complete picture of your infrastructure. This creates a living inventory that AI tools can reference.
+
+Open **[Planning/Environment-Discovery.md](Planning/Environment-Discovery.md)** and work through the sections:
+
+1. **Network Discovery** — ping sweep to find every device
+2. **Port & Service Scan** — what's running and on what ports
+3. **Host Specs** — CPU, RAM, disks, network
+4. **Container / VM Inventory** — specs and services for every workload
+5. **Network Device Discovery** — switches, routers, APs
+6. **Device Configurations** — switch configs, firewall rules
+7. **Out-of-Band Management** — IPMI/iDRAC if applicable
+
+The end result is `Docs/Network_Inventory.md` — a formatted inventory.
+
+> **Pro tip:** Run the scans, paste the raw output into Claude Desktop, and ask it to format the inventory for you.
+
+- [ ] Completed Environment Discovery (or started — finish over multiple sessions)
+
+---
+
+## Step 5 — Your First Commit
+
+Once you've sorted some files in, commit them:
+
+```bash
+cd ~/path/to/{{REPO_DIR}}
+
+# See what's changed
+git status
+
+# Stage everything
+git add -A
+
+# Commit with a descriptive message
+git commit -m "Organize files: add workflows, procedures, and notes"
+
+# Push to GitHub
+git push origin main
+```
+
+- [ ] I've made my first commit and pushed
+
+---
+
+## Step 6 — Daily Git Workflow
+
+This is the routine. It takes 30 seconds once it's habit.
+
+### When you create or update a file:
+
+```bash
+git add -A
+git commit -m "Brief description of what changed"
+git push
+```
+
+### When you start your day:
+
+```bash
+git pull
+```
+
+### Commit Message Examples
+
+Good:
+- `Add SOP: backup restore procedure`
+- `Export workflow: {{WORKFLOW_EXAMPLE_NAME}}`
+- `Update network inventory after switch replacement`
+- `Add incident notes: VPN outage 2026-03-05`
+
+Bad:
+- `update`
+- `stuff`
+- `changes`
+
+- [ ] I understand the daily workflow
+
+---
+
+## Step 7 — Let AI Help You
+
+You have powerful AI tools configured. Here's how to use them to stay organized:
+
+| Task | How to Ask Claude |
+|------|-------------------|
+| Write a procedure from memory | "Write a step-by-step procedure for [task]. I'll review and correct it." |
+| Summarize an incident | "Summarize this incident as a report. Include timeline, root cause, and resolution." |
+| Review a workflow | "Review this workflow. What could be improved?" |
+| Draft a change log entry | "Draft a change log entry for: [what changed] on [date]" |
+
+### What Needs Your Input vs What AI Can Handle
+
+| **AI Can Handle** | **You Need to Provide** |
+|-------------------|------------------------|
+| Draft procedures from your description | Verify technical accuracy |
+| Format and organize notes | The actual knowledge/content |
+| Write commit messages | Approve before pushing |
+| Suggest file names and locations | Final decision |
+
+- [ ] I know how to use AI tools for documentation
+
+---
+
+## Step 8 — Ongoing Habits
+
+### Weekly (5-10 min)
+- [ ] Export any new/updated workflows to `Workflows/Exports/`
+- [ ] `git pull` to get teammates' changes
+- [ ] Commit and push your changes
+
+### After an Incident
+- [ ] Create `Operations/Incidents/YYYY-MM-DD_Brief-Description.md`
+- [ ] Include: what happened, impact, timeline, root cause, resolution, prevention
+- [ ] Commit and push
+
+### After Infrastructure Changes
+- [ ] Create `Operations/Change-Log/YYYY-MM-DD_Brief-Description.md`
+- [ ] Update any affected docs in `Docs/`
+- [ ] Commit and push
+
+---
+
+## Quick Reference
+
+### Git Commands You'll Actually Use
+
+```bash
+git status              # What's changed?
+git add -A              # Stage everything
+git commit -m "message" # Commit with description
+git push                # Send to GitHub
+git pull                # Get teammates' changes
+git log --oneline -10   # See last 10 commits
+```
+
+### File Naming Convention
+
+```
+YYYY-MM-DD_Brief-Description.md     # Dated files (incidents, changes)
+Procedure_Brief-Description.md      # Procedures/SOPs
+Client-Name_Topic.md                # Client notes
+Description.md                      # General docs
+workflow-name_vN.json               # Workflow exports (versioned)
+```
+
+### Emergency: "I Broke Something"
+
+```bash
+# Undo all uncommitted changes (careful!)
+git checkout -- .
+
+# See what happened
+git log --oneline -20
+
+# Ask {{CONTACT_FOR_HELP}} — they can help fix anything
+```
+
+---
+
+## Completion Checklist
+
+- [ ] Git installed and authenticated
+- [ ] {{REPO_NAME}} cloned
+- [ ] Understand the folder structure
+- [ ] Sorted at least one category of existing files
+- [ ] Environment discovery started
+- [ ] Made first commit and pushed
+- [ ] Understand daily git workflow
+- [ ] Know how to use AI tools for docs
+- [ ] Ready to build the habit
+
+**Once you've checked everything above, you're set.** The goal isn't perfection on day one — it's building the habit of putting files in the right place and pushing them so your team stays in sync.
+
+---
+
+*Questions? Ask Claude Desktop or ping {{CONTACT_FOR_HELP}}. This doc lives at `{{REPO_DIR}}/Git-Organized.md` — you can always come back to it.*

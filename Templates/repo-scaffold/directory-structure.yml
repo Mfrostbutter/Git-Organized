@@ -1,0 +1,159 @@
+# directory-structure.yml
+# Defines the standard Git-Organized repo directory structure.
+# Used by scaffold.sh (Phase 3) to create directories and seed README files.
+#
+# Variables:
+#   {{REPO_NAME}}   — The repository name
+#   {{DOMAIN}}      — The environment/domain (e.g., "Datacenter", "Home Lab")
+
+repo:
+  name: "{{REPO_NAME}}"
+  description: "{{ONE_LINE_DESCRIPTION}}"
+
+directories:
+  - path: Docs
+    readme: |
+      # Docs
+
+      Infrastructure documentation: hardware specs, network inventory, configurations.
+
+      ## Key Files
+
+      | File | Purpose |
+      |------|---------|
+      | `Network_Inventory.md` | IP table, hardware specs, service inventory, capacity summary |
+      | `CHANGELOG.md` | All significant infrastructure changes in reverse-chronological order |
+
+  - path: Planning
+    readme: |
+      # Planning
+
+      Active plans, questionnaires, and roadmaps for {{DOMAIN}} work.
+
+      Files here are actively being worked on. Completed plans move to `Docs/` or `Archive/`.
+
+  - path: Workflows
+    readme: |
+      # Workflows
+
+      Automation workflow exports, connection configs, and review notes.
+
+  - path: Workflows/Exports
+    readme: |
+      # Workflows/Exports
+
+      Raw workflow JSON exports. File naming convention: `workflow-name_vN.json`
+
+      Export workflows from your automation platform before making changes.
+      Keep old versions — don't delete, use `Archive/` for superseded exports.
+
+  - path: Workflows/Configs
+    readme: |
+      # Workflows/Configs
+
+      Connection configuration docs (no secrets — reference .env for credentials).
+
+      Document how services connect: endpoints, auth methods, headers.
+      Actual credentials go in `.env` only.
+
+  - path: Workflows/Reviews
+    readme: |
+      # Workflows/Reviews
+
+      AI-assisted workflow analysis and improvement notes.
+
+  - path: Knowledge
+    readme: |
+      # Knowledge
+
+      Operational knowledge: procedures, client notes, vendor reference info.
+
+  - path: Knowledge/Procedures
+    readme: |
+      # Knowledge/Procedures
+
+      SOPs, runbooks, and how-to guides. File naming: `Procedure_Brief-Description.md`
+
+  - path: Knowledge/Client-Notes
+    readme: |
+      # Knowledge/Client-Notes
+
+      Per-client technical notes. No PII — use ticket numbers, not names/emails/phones.
+
+      File naming: `Client-Name_Topic.md` (use internal identifiers, not personal data)
+
+  - path: Knowledge/Vendor-Notes
+    readme: |
+      # Knowledge/Vendor-Notes
+
+      Vendor-specific reference information: compatibility notes, known issues, contacts.
+
+  - path: Operations
+    readme: |
+      # Operations
+
+      Day-to-day operational tracking: changes, incidents, maintenance.
+
+  - path: Operations/Change-Log
+    readme: |
+      # Operations/Change-Log
+
+      Infrastructure change records. File naming: `YYYY-MM-DD_Brief-Description.md`
+
+      Every significant infrastructure change gets a file here.
+      See `Templates/change-management.md` for the full change workflow.
+
+  - path: Operations/Incidents
+    readme: |
+      # Operations/Incidents
+
+      Issue tracking and resolution notes. File naming: `YYYY-MM-DD_Brief-Description.md`
+
+      Include: what happened, impact, timeline, root cause, resolution, prevention.
+
+  - path: Operations/Maintenance
+    readme: |
+      # Operations/Maintenance
+
+      Scheduled maintenance records and plans. File naming: `YYYY-MM-DD_Brief-Description.md`
+
+  - path: Reviews
+    readme: |
+      # Reviews
+
+      AI-assisted analysis and audit outputs.
+
+  - path: Outputs
+    readme: |
+      # Outputs
+
+      Generated reports and deliverables. File naming: `YYYY-MM-DD_Brief-Description.md`
+
+  - path: Scripts
+    readme: |
+      # Scripts
+
+      Environment-specific scripts and tools.
+
+      Add a comment block at the top of each script: what it does, how to use it, dependencies.
+
+  - path: Archive
+    readme: |
+      # Archive
+
+      Retired and superseded files. **Never delete — move here instead.**
+
+      Files in Archive/ are preserved for historical reference.
+      Naming convention: keep original name, the location in Archive/ provides context.
+
+root_files:
+  - name: Git-Organized.md
+    description: "Interactive onboarding guide — generated from Templates/git-organized.md.template"
+  - name: CLAUDE.md
+    description: "Claude Code instructions — generated from Templates/repo-scaffold/CLAUDE.md.template"
+  - name: .gitignore
+    description: "Standard gitignore — generated from Templates/repo-scaffold/.gitignore.template"
+  - name: .env
+    description: "Environment variables — generated from Templates/env-file.template (NEVER commit this)"
+  - name: README.md
+    description: "Repo overview — generated from Templates/repo-scaffold/README.md.template"
