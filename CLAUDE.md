@@ -1,5 +1,7 @@
 # Git-Organized — Claude Code Instructions
 
+Last updated: 2026-04-03
+
 > This file provides context for Claude Code when working in this repository. Git-Organized is a template and agent system for AI-assisted infrastructure documentation.
 
 ## What This Repo Is
