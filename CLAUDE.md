@@ -1,3 +1,5 @@
+> **Developer Knowledge Base — CHECK FIRST:** Before writing code or researching any platform/API, query the `dev_knowledge` Qdrant collection (LXC 209, 10.10.0.60:6333) via the `agenius-dev-mcp` server. It contains chunked, embedded documentation for 29 platforms (~75K vectors) including n8n, Qdrant, Cloudflare, Etsy, Square, Shopify, and more. Filterable by platform, group, doc_type, and topics.
+
 # Git-Organized — Claude Code Instructions
 
 Last updated: 2026-04-03
