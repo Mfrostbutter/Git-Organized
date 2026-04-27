@@ -112,8 +112,8 @@ Git-Organized/
 
 This system was built from patterns developed in two real environments:
 
-- **BWIT Home Lab** — 3-node Proxmox cluster, 7 LXC services, RTX 5060 GPU workstation, self-hosted AI platform
-- **BWIT Datacenter** — Dell PowerEdge R620, Proxmox VE, DC migration from home lab
+- **Home Lab** — multi-node Proxmox cluster, LXC services, GPU workstation, self-hosted AI platform
+- **Datacenter migration** — Dell PowerEdge hardware, Proxmox VE, home-lab-to-DC promotion
 
 Both serve as reference implementations for the templates and discovery walkthroughs. The `Templates/` directory contains generalized versions extracted from those real environments.
 
@@ -142,4 +142,10 @@ Issues and PRs welcome. The templates and agent prompts are the highest-value co
 
 ---
 
-*Built by [Brightworks IT](https://brightworksit.com). MIT License.*
+## Companion Repo
+
+[**Git-Organized-AI-Policy**](https://github.com/Mfrostbutter/Git-Organized-AI-Policy) applies the same pattern to AI governance — the scaffold, discovery walkthroughs, agents, and drift-loop wiring an org needs to ship AI policy as code instead of as a PDF.
+
+---
+
+*Built by [Agenius AI Labs](https://ageniuslabs.com). MIT License.*

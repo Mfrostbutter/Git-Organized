@@ -65,5 +65,5 @@ Before modifying any file in this repo:
 
 - **Never delete files** — move to `Archive/`
 - **No real credentials or IPs in templates** — use `{{VARIABLE}}` placeholders
-- `Templates/` should always contain generic content, never BWIT-specific values
+- `Templates/` should always contain generic content, never org-specific values
 - The `Docs/` directory is for the Git-Organized system docs, not infrastructure docs
